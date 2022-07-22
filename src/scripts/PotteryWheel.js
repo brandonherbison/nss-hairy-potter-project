@@ -1,11 +1,11 @@
 let potteryNumber = 1;
 
-export const makePottery = (clayShape, clayWeight, clayHeight) => {
-        const clayObject = {
-            shape: clayShape,
-            weight: clayWeight,
-            height: clayHeight,
+export const makePottery = (potteryShape, potteryWeight, potteryHeight) => {
+        const potteryObject = {
+            shape: potteryShape,
+            weight: potteryWeight,
+            height: potteryHeight,
             id: potteryNumber++
         }
-        return clayObject
+        return potteryObject
 }

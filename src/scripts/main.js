@@ -1,37 +1,39 @@
 // Imports go first
 
-import { makePottery } from "./PotteryWheel"
+import { makePottery } from "./PotteryWheel.js"
 
 
 
 // Make 5 pieces of pottery at the wheel
-let mug = makePottery(potteryShape, potteryWeight, potteryHeight)
-let plate = makePottery(potteryShape, potteryWeight, potteryHeight)
-let vase = makePottery(potteryShape, potteryWeight, potteryHeight)
-let bowl = makePottery(potteryShape, potteryWeight, potteryHeight)
-let flask = makePottery(potteryShape, potteryWeight, potteryHeight)
+let mug = makePottery("mug", 2, 3)
+let plate = makePottery("plate", 4, 1)
+let vase = makePottery("vase", 7, 15)
+let bowl = makePottery("bowl", 3, 5)
+let flask = makePottery("flask", 2, 3)
 
 // Fire each piece of pottery in the kiln
-import { firePottery } from "./kiln"
+import { firePottery } from "./kiln.js"
 
-firePottery(mug, 1000)
-firePottery(plate, 1000)
-firePottery(vase, 1000)
-firePottery(bowl, 1000)
-firePottery(flask, 1300)
+let fancyMug = firePottery(mug, 1000)
+let fancyPlate = firePottery(plate, 1000)
+let fancyVase = firePottery(vase, 1000)
+let fancyBowl = firePottery(bowl, 1000)
+let fancyFlask = firePottery(flask, 1000)
 // Determine which ones should be sold, and their price
-import { toSellOrNotToSell } from "./potteryCatalog"
+import { toSellOrNotToSell } from "./potteryCatalog.js"
 
-import { usePottery} from "./potteryCatalog"
+//import { usePottery } from "./potteryCatalog"
 
 
-toSellOrNotToSell(mug)
-toSellOrNotToSell(plate)
-toSellOrNotToSell(vase)
-toSellOrNotToSell(bowl)
-toSellOrNotToSell(flask)
+toSellOrNotToSell(fancyMug)
+toSellOrNotToSell(fancyPlate)
+toSellOrNotToSell(fancyVase)
+toSellOrNotToSell(fancyBowl)
+toSellOrNotToSell(fancyFlask)
 
 // Invoke the component function that renders the HTML list
+import { PotteryList } from "./potteryList.js"
 
+const parentHTMLElement = document.querySelector(".potteryList")
 
-
+parentHTMLElement.innerHTML = PotteryList()
